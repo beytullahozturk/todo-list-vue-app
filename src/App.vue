@@ -6,6 +6,14 @@
           <strong>Yapılacaklar Listesi</strong>
         </div>
         <div class="card-body">
+          <form class="form-group" @submit.prevent="addNewItem">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Yeni Ekle" aria-label="Yeni Ekle" aria-describedby="basic-addon2" v-model="newItemTitle">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Ekle</button>
+              </div>
+            </div>
+          </form>
           <table class="table">
             <tbody v-if="items.length">
               <tr :key=index v-for="(item,index) in items">
@@ -27,14 +35,9 @@
             <p class="text-danger" v-else align="center">Eklenmiş veri yok</p>
           </table>
           <hr/>
-          <form class="form-group" @submit.prevent="addNewItem">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Yeni Ekle" aria-label="Yeni Ekle" aria-describedby="basic-addon2" v-model="newItemTitle">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit">Ekle</button>
-              </div>
-            </div>
-          </form>
+          <button class="btn btn-primary mr-2">Toplam <span class="badge badge-light">5</span></button>
+          <button class="btn btn-warning mr-2">Aktif <span class="badge badge-light">3</span></button>
+          <button class="btn btn-success mr-2">Pasif <span class="badge badge-light">2</span></button> 
         </div>
       </div>
     </div>
@@ -77,7 +80,7 @@ export default {
       box-sizing: border-box;
       -webkit-overflow-scrolling: touch;
       font-family: 'Poppins', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
     .actions{
       float: right;
@@ -87,7 +90,7 @@ export default {
       color: green;
     }
     form {
-        margin-top: 3rem;
+        margin-top: 1rem;
         display: flex;
         flex-wrap: wrap;
     }
@@ -100,7 +103,7 @@ export default {
         flex-grow: 1;
         border: none;
         background: #f7f1f1;
-        padding: 0 1.5em;
+        padding: 0 1em;
         font-size: initial;
         height: 33px;
     }
