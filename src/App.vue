@@ -110,4 +110,7 @@ export default {
     tr{
       background-color: #efefef;
     }
+    .btn-picto:focus {
+      outline: none;
+    }
 </style>
